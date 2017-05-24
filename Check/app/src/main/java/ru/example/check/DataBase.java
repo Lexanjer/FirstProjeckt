@@ -27,6 +27,7 @@ public class DataBase implements Serializable {
     private static ArrayList<CheckListFull> dataBase;
 
 
+		public static int PAGE_COUNT;
 
     public DataBase(Context context) {
 
@@ -40,6 +41,7 @@ public class DataBase implements Serializable {
 
         }
         Log.d(TAG, "---" + dataBase);
+				PAGE_COUNT = dataBase.size();
 
     }
 

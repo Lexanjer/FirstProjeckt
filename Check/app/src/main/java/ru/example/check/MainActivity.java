@@ -7,6 +7,9 @@ import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +18,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+						
+		
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+				
+				DataBase dataBase = new DataBase(this);
+				ViewPager pager = (ViewPager) findViewById(R.id.pager);
+				
+				PagerAdapter pagerAdapter = new MyPageAdapter(getSupportFragmentManager());
 
+        pager.setAdapter(pagerAdapter);
+				
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
